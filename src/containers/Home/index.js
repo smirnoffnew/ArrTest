@@ -12,22 +12,12 @@ export const Home = () => {
       const filteredList = [];
 
       data.cluster.variations.forEach(item => {
-        if (
-          filteredList.find(item_ => item_.size === item.size) === undefined
-        ) {
+        if (filteredList.find(item_ => item_.size === item.size) === undefined) {
           filteredList.push(item);
         } else {
           const existing = filteredList.find(item_ => item_.size === item.size);
-          const existingIndex = filteredList.findIndex(
-            item_ => item_.size === item.size
-          );
-
-          if (Array.isArray(existing.id)) {
-            existing.id = [...existing.id, item.id];
-          } else {
-            existing.id = [existing.id, item.id];
-          }
-
+          const existingIndex = filteredList.findIndex(item_ => item_.size === item.size);
+          Array.isArray(existing.id)  ? existing.id = [...existing.id, item.id] : existing.id = [existing.id, item.id];
           filteredList.splice(existingIndex, 1, existing);
         }
       });
@@ -51,7 +41,7 @@ export const Home = () => {
   };
 
   return list ? (
-    <div>
+    <div className={classes.wrapper}>
       <FormControl>
         <InputLabel>Pick a size</InputLabel>
         <Select
