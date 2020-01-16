@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { Provider } from "react-redux";
+// import { Provider } from "react-redux";
 import "./App.css";
-import store from "./store";
+// import store from "./store";
 import {
   MuiThemeProvider,
   CssBaseline,
@@ -34,7 +34,7 @@ const theme = createMuiTheme({
 function App() {
   return (
     <div className="App">
-      <Provider store={store}>
+      {/* <Provider store={store}> */}
         <BrowserRouter basename={process.env.PUBLIC_URL}>
           <MuiThemeProvider theme={theme}>
             <CssBaseline />
@@ -43,7 +43,7 @@ function App() {
             </Switch>
           </MuiThemeProvider>
         </BrowserRouter>
-      </Provider>
+      {/* </Provider> */}
     </div>
   );
 }
