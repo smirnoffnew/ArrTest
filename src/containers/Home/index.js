@@ -27,6 +27,7 @@ export const Home = () => {
   }, []);
 
   const renderItems = () => {
+      console.log('list', list);
     return list.map(({ size, frame_size, id }) => (
       <MenuItem
         value={id}
@@ -36,7 +37,7 @@ export const Home = () => {
   };
 
   const handleChange = e => {
-    setValue(value);
+    setValue(e.target.value);
     console.log(e.target.value);
   };
 
